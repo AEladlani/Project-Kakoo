@@ -43,12 +43,13 @@ To run the app on your local machine:
 Clone the repository:
 
 git clone https://github.com/your-username/kakoo-project.git
-cd kakoo-project
-Create a Python virtual environment (recommended):
 
+cd kakoo-project
 
 pip install --upgrade pip
+
 pip install -r requirements.txt
+
 Run the Streamlit app:
 
 
