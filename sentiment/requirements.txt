@@ -1,0 +1,9 @@
+streamlit
+deepmultilingualpunctuation
+tqdm==4.67.1
+colorama==0.4.6
+transformers==4.57.6
+matplotlib==3.9.4
+mediapipe==0.10.21
+torch
+opencv-python-headless>=4.11.0,<5
