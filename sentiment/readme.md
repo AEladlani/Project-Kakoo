@@ -2,8 +2,8 @@
 
 ## Overview
 
-This project is a **Streamlit web application** designed to analyze sentiment of responses. 
-It performs the following tasks:
+This project is a **Streamlit web application** designed to analyze sentiment of responses.  
+The notebook **experiment.ipynb** explains in details. It performs the following tasks:
 
 1. **Language Detection** – Automatically detects whether the input text is English, French, or another language using Mediapipe.  
 2. **Punctuation Restoration** – Corrects missing or incorrect punctuation in unpunctuated or poorly punctuated text using a deep learning model (`deepmultilingualpunctuation`).  
@@ -19,11 +19,39 @@ The app can handle text input **either typed directly** or **uploaded as a file*
 
 To ensure smooth deployment on **Streamlit Cloud** (2.7 GB limit), this project uses a **lightweight multilingual sentiment model** instead of the large 2.1 GB model:
 
-Demo App can be visited here : https://sent-kakoo.streamlit.app
+Demo App can be visited here: **[Kakoo Sentiment App](https://sent-kakoo.streamlit.app)**
 
 - Original large model (not used here):  
-
-```python
+```
 sentiment_model = pipeline(
     "sentiment-analysis", 
-    model="cardiffnlp/twitter-xlm-roberta-base-sentiment")```
+    model="cardiffnlp/twitter-xlm-roberta-base-sentiment")
+```
+
+Lightweight multilingual model (used here):
+```sentiment_model = pipeline(
+    "sentiment-analysis",
+    model="clapAI/mmBERT-small-multilingual-sentiment")
+```
+
+This smaller model still provides accurate sentiment classification for English and French, while being cloud-friendly.
+
+
+Running Locally
+To run the app on your local machine:
+
+Clone the repository:
+
+bash
+git clone https://github.com/your-username/kakoo-project.git
+cd kakoo-project
+Create a Python virtual environment (recommended):
+
+
+bash
+pip install --upgrade pip
+pip install -r requirements.txt
+Run the Streamlit app:
+
+bash
+streamlit run new_sent.py
