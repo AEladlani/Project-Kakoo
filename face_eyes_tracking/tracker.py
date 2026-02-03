@@ -5,27 +5,27 @@ from tracking_utils import *
 # all your existing helpers live here
 
 # ---------- MediaPipe init ----------
-#model_path = "face_land/face_landmarker.task"
+model_path = "face_land/face_landmarker.task"
 
-#BaseOptions = mp.tasks.BaseOptions
-#FaceLandmarker = mp.tasks.vision.FaceLandmarker
-#FaceLandmarkerOptions = mp.tasks.vision.FaceLandmarkerOptions
-#VisionRunningMode = mp.tasks.vision.RunningMode
-
-#options = FaceLandmarkerOptions(
- #   base_options=BaseOptions(model_asset_path=model_path),
-  #  running_mode=VisionRunningMode.IMAGE,
-   # num_faces=1)
-#landmarker = FaceLandmarker.create_from_options(options)
-
-from mediapipe.tasks.python.vision import face_landmarker
-from mediapipe.tasks.python.vision import FaceLandmarkerOptions, BaseOptions, RunningMode
+BaseOptions = mp.tasks.BaseOptions
+FaceLandmarker = mp.tasks.vision.FaceLandmarker
+FaceLandmarkerOptions = mp.tasks.vision.FaceLandmarkerOptions
+VisionRunningMode = mp.tasks.vision.RunningMode
 
 options = FaceLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path="https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker_v1/float16/1/face_landmarker.task"),
-    running_mode=RunningMode.IMAGE,
+    base_options=BaseOptions(model_asset_path=model_path),
+    running_mode=VisionRunningMode.IMAGE,
     num_faces=1)
 landmarker = FaceLandmarker.create_from_options(options)
+
+#from mediapipe.tasks.python.vision import face_landmarker
+#from mediapipe.tasks.python.vision import FaceLandmarkerOptions, BaseOptions, RunningMode
+
+#options = FaceLandmarkerOptions(
+ #   base_options=BaseOptions(model_asset_path="https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker_v1/float16/1/face_landmarker.task"),
+  #  running_mode=RunningMode.IMAGE,
+  #  num_faces=1)
+#landmarker = FaceLandmarker.create_from_options(options)
 
 LEFT_EYE = [33, 133, 160, 159, 158, 157, 173, 246, 161, 163, 144, 145, 153, 154, 155]
 RIGHT_EYE = [362, 263, 387, 386, 385, 384, 398, 466, 388, 390, 373, 374, 380, 381, 382]
