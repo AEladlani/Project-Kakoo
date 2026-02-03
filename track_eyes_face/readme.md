@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a **real-time face and eye tracking system** using **MediaPipe** and **OpenCV**. It detects key facial landmarks—including pupils and eye corners—to predict **gaze direction** and track **head position and orientation**. It is suitable for applications like online human-computer interaction studies.
+This project implements a **real-time face and eye tracking system** using **MediaPipe** and **OpenCV**. It detects key facial landmarks including pupils and eye corners to predict **gaze direction** and track **head position and orientation**. It is suitable for applications like online human-computer interaction studies.
 
 A notebook **experiment.ipynb** explain the steps in details.
 
@@ -18,6 +18,7 @@ A notebook **experiment.ipynb** explain the steps in details.
 
 ---
 
+To run the app locally:
 ## Installation
 
 1. **Clone the repository:**
