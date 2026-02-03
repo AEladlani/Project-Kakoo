@@ -1,4 +1,4 @@
-# Kakoo Online Interview Tracker
+# Kakoo Online Tracker
 
 ## Overview
 
