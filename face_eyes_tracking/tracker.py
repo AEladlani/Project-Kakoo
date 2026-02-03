@@ -5,18 +5,16 @@ from tracking_utils import *
 # all your existing helpers live here
 
 # ---------- MediaPipe init ----------
-model_path = "face_land/face_landmarker.task"
-
-BaseOptions = mp.tasks.BaseOptions
-FaceLandmarker = mp.tasks.vision.FaceLandmarker
-FaceLandmarkerOptions = mp.tasks.vision.FaceLandmarkerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
-
-options = FaceLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path=model_path),
-    running_mode=VisionRunningMode.IMAGE,
-    num_faces=1)
-landmarker = FaceLandmarker.create_from_options(options)
+#model_path = "face_land/face_landmarker.task"
+#BaseOptions = mp.tasks.BaseOptions
+#FaceLandmarker = mp.tasks.vision.FaceLandmarker
+#FaceLandmarkerOptions = mp.tasks.vision.FaceLandmarkerOptions
+#VisionRunningMode = mp.tasks.vision.RunningMode
+#options = FaceLandmarkerOptions(
+#    base_options=BaseOptions(model_asset_path=model_path),
+#    running_mode=VisionRunningMode.IMAGE,
+#    num_faces=1)
+#landmarker = FaceLandmarker.create_from_options(options)
 
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(
@@ -38,7 +36,6 @@ RIGHT_IRIS = [473, 474, 475, 476, 477]
 
 BLINK_THRESHOLD = 0.25
 
-
 def process_frame(
     frame,
     eyes_hist,
@@ -48,14 +45,13 @@ def process_frame(
     face_det):
     frame = cv2.resize(frame, (720, 640))
     h, w, _ = frame.shape
-
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     #mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
     #result = landmarker.detect(mp_image)
     results = face_mesh.process(mp_image)
     panel_w = w // 2
     panel = np.zeros((h, panel_w, 3), dtype=np.uint8)
-
+        
     # ---------- NO FACE ----------
     #if not result.face_landmarks:
     if not results.multi_face_landmarks:
