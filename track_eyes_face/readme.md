@@ -29,3 +29,10 @@ cd Project-Kakoo/face_eyes_tracking
 2. pip install -r requirements.txt
 
 3. streamlit run app.py
+```
+
+
+![test1](test1.png)
+
+
+![test2](test2.png)
