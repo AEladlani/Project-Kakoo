@@ -14,6 +14,11 @@ st.set_page_config(page_title="Kakoo Online Interview Tracker", layout="wide")
 # Show Kakoo logo
 logo = Image.open("kakoo.png")
 st.image(logo, width=200)
+try:
+    logo = Image.open("kakoo.png")
+    st.image(logo, width=200)
+except FileNotFoundError:
+    st.warning("Logo not found")
 st.title("Kakoo Online Intervie Tracker")
 
 # ----------------- SESSION STATE -----------------
