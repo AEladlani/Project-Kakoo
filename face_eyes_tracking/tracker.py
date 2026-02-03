@@ -18,14 +18,12 @@ options = FaceLandmarkerOptions(
     num_faces=1)
 landmarker = FaceLandmarker.create_from_options(options)
 
-#from mediapipe.tasks.python.vision import face_landmarker
-#from mediapipe.tasks.python.vision import FaceLandmarkerOptions, BaseOptions, RunningMode
-
-#options = FaceLandmarkerOptions(
- #   base_options=BaseOptions(model_asset_path="https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker_v1/float16/1/face_landmarker.task"),
-  #  running_mode=RunningMode.IMAGE,
-  #  num_faces=1)
-#landmarker = FaceLandmarker.create_from_options(options)
+mp_face_mesh = mp.solutions.face_mesh
+face_mesh = mp_face_mesh.FaceMesh(
+    max_num_faces=1,
+    refine_landmarks=True,
+    min_detection_confidence=0.7,
+    min_tracking_confidence=0.7)
 
 LEFT_EYE = [33, 133, 160, 159, 158, 157, 173, 246, 161, 163, 144, 145, 153, 154, 155]
 RIGHT_EYE = [362, 263, 387, 386, 385, 384, 398, 466, 388, 390, 373, 374, 380, 381, 382]
@@ -52,25 +50,26 @@ def process_frame(
     h, w, _ = frame.shape
 
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
-    result = landmarker.detect(mp_image)
-
+    #mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
+    #result = landmarker.detect(mp_image)
+    results = face_mesh.process(mp_image)
     panel_w = w // 2
     panel = np.zeros((h, panel_w, 3), dtype=np.uint8)
 
     # ---------- NO FACE ----------
-    if not result.face_landmarks:
+    #if not result.face_landmarks:
+    if not results.multi_face_landmarks:
         face_det.append("face doesn't exist")
         cv2.putText(
             panel, "No face", (10, 50),
-            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2
-        )
+            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         return np.concatenate((frame, panel), axis=1)
-
     # ---------- FACE EXISTS ----------
-    lm = result.face_landmarks[0]
-    pts = np.array([(int(l.x * w), int(l.y * h)) for l in lm])
-
+    face_landmarks = results.multi_face_landmarks[0]
+    pts = np.array([(int(lm.x*w), int(lm.y*h)) for lm in face_landmarks.landmark])
+    lm = face_landmarks.landmark
+    #lm = result.face_landmarks[0]
+    #pts = np.array([(int(l.x * w), int(l.y * h)) for l in lm])
     fram = frame.copy()
     draw_eye_landmarks(fram, lm, w, h)
     # -------- HEAD --------
