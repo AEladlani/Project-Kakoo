@@ -20,10 +20,8 @@ A notebook **experiment.ipynb** explain the steps in details.
 
 To run the app locally:
 ## Installation
-
-1. **Clone the repository:**
-
 ```bash
+1. Clone the repository:
 git clone https://github.com/AEladlani/Project-Kakoo.git
 cd Project-Kakoo/face_eyes_tracking
 
