@@ -64,7 +64,7 @@ The pipeline follows these steps:
 - **Input:** Aligned face image
 - **Output:** Emotion class + confidence
 - **Usage:** Real-time inference on each detected face
--- **Weights:** can be downloaded here **[weights](https://drive.google.com/drive/folders/1YRh8XarO1A4SVUahAVKPwMtWLDmP1LNl?usp=sharing)**
+- **Weights:** can be downloaded here **[weights](https://drive.google.com/drive/folders/1YRh8XarO1A4SVUahAVKPwMtWLDmP1LNl?usp=sharing)**
 
 ---
 
