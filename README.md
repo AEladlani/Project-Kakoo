@@ -9,22 +9,6 @@ All projects are tested and recommended with **Python 3.9.25**.
 
 ## 📁 Repository Structure
 
-.
-├── sentiment/
-│   ├── notebook.ipynb
-│   └── new_sent.py
-│
-├── facial_expression/
-│   ├── notebook.ipynb
-│   └── app.py
-│
-├── track_eyes_face/
-│   ├── notebook.ipynb
-│   └── app.py
-│
-├── all_requirements.txt
-└── README.md
-
 Each project includes:
 - A **Jupyter Notebook** explaining the methodology, models, and experiments
 - A **Streamlit app** for local deployment
@@ -39,6 +23,7 @@ Each project includes:
 - Streamlit-based interactive application
 
 Run:
+
 cd sentiment  
 streamlit run new_sent.py
 
@@ -52,6 +37,7 @@ streamlit run new_sent.py
 - Emotion distribution visualization after inference
 
 Run:
+
 cd facial_expression  
 streamlit run app.py
 
@@ -63,6 +49,7 @@ streamlit run app.py
 - Useful for attention analysis and facial behavior tracking
 
 Run:
+
 cd track_eyes_face  
 streamlit run app.py
 
@@ -79,7 +66,7 @@ Supported Python versions:
 - 3.11
 - 3.12
 
-All projects must be run inside the **same virtual environment**.
+All projects can be run inside the **same virtual environment**.
 
 ---
 
@@ -104,7 +91,7 @@ Pillow==11.3.0
 ## 🚀 How to Run
 
 Clone the repository:
-git clone <repository-url>  
+git clone <https://github.com/AEladlani/Project-Kakoo/tree/main>  
 cd <repository-name>
 
 Create a virtual environment:
@@ -112,30 +99,29 @@ python3.9 -m venv ai_env
 
 Activate it:
 
-Linux / macOS:
-source ai_env/bin/activate
-
-Windows:
-ai_env\Scripts\activate
+conda activate ai_env 
 
 Install dependencies:
 pip install --upgrade pip  
 pip install -r all_requirements.txt
 
 If CUDA-enabled PyTorch is not installed automatically:
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+pip install torch torchvision torchaudio
 
 Run a project:
 
 Sentiment Analysis:
+
 cd sentiment  
 streamlit run new_sent.py
 
 Facial Expression Recognition:
+
 cd facial_expression  
 streamlit run app.py
 
 Face & Eye Tracking:
+
 cd track_eyes_face  
 streamlit run app.py
 
@@ -145,8 +131,7 @@ streamlit run app.py
 
 Each project includes a notebook that explains:
 - Data preprocessing
-- Model architecture
-- Inference pipeline
-- Experiments and evaluation
+- Experiments 
+- Inference and evaluation
 
 These notebooks are recommended for understanding the project internals before running the Streamlit applications.
