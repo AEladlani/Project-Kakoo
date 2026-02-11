@@ -32,7 +32,8 @@ streamlit run new_sent.py
 ### 2️⃣ Facial Expression Recognition
 - Facial emotion recognition from **video or webcam**
 - Face detection and alignment using **MediaPipe Face Landmarks**
-- Emotion classification using a **PyTorch ResNet-based model**
+- Emotion classification using a **PyTorch ResNet-based model** from **[libtreface](https://github.com/ihp-lab/LibreFace)**
+
 - Temporal smoothing using a FIFO window for stable predictions
 - Emotion distribution visualization after inference
 
