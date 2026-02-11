@@ -34,7 +34,7 @@ streamlit run new_sent.py
 - Facial emotion recognition from **video or webcam**
 - Face detection and alignment using **MediaPipe Face Landmarks**
 - Emotion classification using a **PyTorch ResNet-based model** from **[libreface](https://github.com/ihp-lab/LibreFace)**
-
+- Weights can be diwnloaded here **[weights](https://drive.google.com/drive/folders/1YRh8XarO1A4SVUahAVKPwMtWLDmP1LNl?usp=sharing)**
 - Temporal smoothing using a FIFO window for stable predictions
 - Emotion distribution visualization after inference
 
