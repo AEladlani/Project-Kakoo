@@ -1,4 +1,5 @@
 # Project-Kakoo
+![test1](kakoo.png)
 # 🧠 AI Projects Suite: Sentiment, Facial Expression & Face/Eye Tracking
 
 This repository contains **three AI projects** that all run in **one shared Python environment**.  
@@ -32,7 +33,7 @@ streamlit run new_sent.py
 ### 2️⃣ Facial Expression Recognition
 - Facial emotion recognition from **video or webcam**
 - Face detection and alignment using **MediaPipe Face Landmarks**
-- Emotion classification using a **PyTorch ResNet-based model** from **[libtreface](https://github.com/ihp-lab/LibreFace)**
+- Emotion classification using a **PyTorch ResNet-based model** from **[libreface](https://github.com/ihp-lab/LibreFace)**
 
 - Temporal smoothing using a FIFO window for stable predictions
 - Emotion distribution visualization after inference
